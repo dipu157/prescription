@@ -1,0 +1,19 @@
+ sudo php artisan clear-compiled
+ sudo composer dump-autoload
+ sudo php artisan optimize
+
+ to get secondary database connection
+
+ php artisan config:clear
+
+ php artisan migrate:rollback --step=1
+
+ need to install curl for tcpdf
+
+ sudo apt-get install php-curl
+
+
+ update `appointments` set visit_date = appointment_date WHERE status = 0
+
+ UPDATE `prescriptions` set status = 0 WHERE `appointment_id` in(select id from appointments
+                                                                 where status = 0)
